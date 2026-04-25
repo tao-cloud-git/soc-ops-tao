@@ -1,36 +1,41 @@
 @using SocOps.Models
 
-<div class="flex flex-col min-h-full bg-gray-50">
-    <!-- Header -->
-    <header class="flex items-center justify-between p-3 bg-white border-b border-gray-200">
-        <button
-            @onclick="OnReset"
-            class="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100">
-            ← Back
-        </button>
-        <h1 class="font-bold text-gray-900">Soc Ops</h1>
-        <div class="w-16"></div>
-    </header>
+<div class="screen-shell">
+    <div class="hero-stack">
+        <section class="app-frame glass-card">
+            <header class="app-header">
+                <button
+                    @onclick="OnReset"
+                    class="ghost-button app-back-button">
+                    ← Back
+                </button>
 
-    <!-- Instructions -->
-    <p class="text-center text-gray-500 text-sm py-2 px-4">
-        Tap a square when you find someone who matches it.
-    </p>
+                <div class="header-stack">
+                    <p class="eyebrow">Metallic Chrome Board</p>
+                    <h1 class="header-title">Soc Ops</h1>
+                </div>
 
-    <!-- Bingo indicator -->
-    @if (HasBingo)
-    {
-        <div class="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-            🎉 BINGO! You got a line!
-        </div>
-    }
+                <div class="app-back-spacer" aria-hidden="true"></div>
+            </header>
 
-    <!-- Board -->
-    <div class="flex-1 flex items-center justify-center p-3">
-        <BingoBoard
-            Board="@Board"
-            WinningSquareIds="@WinningSquareIds"
-            OnSquareClick="@OnSquareClick" />
+            <p class="instruction-strip">
+                Tap a square when you find someone who matches it.
+            </p>
+
+            @if (HasBingo)
+            {
+                <div class="bingo-banner">
+                    BINGO! You got a line.
+                </div>
+            }
+
+            <div class="board-shell">
+                <BingoBoard
+                    Board="@Board"
+                    WinningSquareIds="@WinningSquareIds"
+                    OnSquareClick="@OnSquareClick" />
+            </div>
+        </section>
     </div>
 </div>
 
