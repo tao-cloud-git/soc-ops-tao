@@ -29,6 +29,16 @@ SocOps is a Blazor WebAssembly app (.NET 10) for a social bingo game.
 - Put business logic in services, not directly in components.
 - Reuse utility classes from app.css before adding new styles.
 
+## Design Guide
+
+- Preserve the existing visual language unless the task explicitly asks for a redesign.
+- Favor bold, intentional interfaces over generic layouts; choose a clear visual direction before adding styles.
+- Reuse utility classes from SocOps/wwwroot/css/app.css first, and add new utilities only when the existing set cannot express the design cleanly.
+- Define reusable colors, spacing, and surface treatments with CSS variables when introducing new styling patterns.
+- Use expressive typography and strong contrast, but keep readability and mobile responsiveness intact.
+- Prefer subtle, purposeful motion that supports hierarchy or feedback instead of decorative animation.
+- Keep component markup clean by moving reusable presentation rules into CSS rather than duplicating long class combinations everywhere.
+
 ## Run Commands
 
 - dotnet build SocOps/SocOps.csproj
